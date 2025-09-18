@@ -1,10 +1,11 @@
 :root {
-  --text-color: #72efd9;
-  --secondary: #ff6f91;
-  --background: #252324;
+  --accent: #a7ffeb;
+  --secondary: #00ffb2;
+  --text-color: #39ff14;
+  --background: #1a2327;
 }
 * {
-  background-color: #252324;
+  background-color: var(--background);
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -15,6 +16,14 @@
   font-variation-settings: "slnt" 0, "CRSV" 0.5, "ELSH" 0, "ELXP" 0;
 }
 
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+}
 /* todo Header */
 .header-text {
   text-align: center;
@@ -27,20 +36,29 @@
 
 /* todo Main content */
 .timer-display {
-  text-align: center;
-  align-items: center;
+  display: flex;
   justify-content: center;
-  font-size: 3rem;
-  color: var(--secondary);
-  border: 1px solid var(--secondary);
-  border-radius: 50%;
+  align-items: center;
+  text-align: center;
   width: 200px;
   height: 200px;
-  display: flex;
+  font-size: 3rem;
+  position: relative;
   margin: 0 auto;
+  border-radius: 50%;
+  box-shadow: 20px 20px 42px #0e1021, -20px -20px 42px #1c2244;
+  color: var(--text-color);
+  background: #151932;
   font-family: "poppins", sans-serif;
-  font-weight: 500;
-  font-style: normal;
+}
+
+.timer-display::before {
+  content: "";
+  position: absolute;
+  border: 10px solid var(--accent);
+  border-radius: 50%;
+  width: 10rem;
+  height: 10rem;
 }
 
 /* todo Control Button */
@@ -63,10 +81,6 @@
   cursor: pointer;
 }
 
-.start-btn:hover {
-  background-color: var(--secondary);
-}
-
 .stop-btn {
   font-size: 1rem;
   padding: 10px 20px;
@@ -75,9 +89,6 @@
   border: 3px solid var(--secondary);
   background: none;
   cursor: pointer;
-}
-.stop-btn:hover {
-  background-color: var(--secondary);
 }
 
 .reset-btn {
@@ -88,7 +99,4 @@
   border: 3px solid var(--secondary);
   background: none;
   cursor: pointer;
-}
-.reset-btn:hover {
-  background-color: var(--secondary);
 }
